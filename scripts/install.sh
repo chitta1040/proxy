@@ -37,7 +37,8 @@ stacksize 262144
 flush
 auth iponly
 allow *
-"proxy -6 -n -a -p" $2 " -i" $3 " -e"$1"\n" \
+$(awk -F "/" '{print 
+"proxy -6 -n -a -p" $2 " -i" $1 " -e"$3"\n" \
 "flush\n"}' ${WORKDATA})
 EOF
 }
