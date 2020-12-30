@@ -36,7 +36,7 @@ setuid 65535
 stacksize 262144
 flush
 auth iponly
-allow *
+allow echo $1
 
 $(awk -F "/" '{print "proxy -6 -n -a -p" $2 " -i" $1 " -e"$3 "\n" }' ${WORKDATA})
 EOF
@@ -85,6 +85,8 @@ echo "Internal ip = ${IP4}. Exteranl sub for ip6 = ${IP6}"
 
 echo "How many proxy do you want to create? Example 500"
 read COUNT
+echo "Please Enter your auth ip"
+read AUTHIP
 
 FIRST_PORT=3100
 LAST_PORT=$(($FIRST_PORT + $COUNT))
@@ -94,7 +96,7 @@ gen_iptables >$WORKDIR/boot_iptables.sh
 gen_ifconfig >$WORKDIR/boot_ifconfig.sh
 chmod +x boot_*.sh /etc/rc.local
 
-gen_3proxy >/usr/local/etc/3proxy/3proxy.cfg
+gen_3proxy AUTHIP >/usr/local/etc/3proxy/3proxy.cfg
 
 cat >>/etc/rc.local <<EOF
 bash ${WORKDIR}/boot_iptables.sh
