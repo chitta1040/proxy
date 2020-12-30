@@ -36,7 +36,7 @@ setuid 65535
 stacksize 262144
 flush
 auth iponly
-allow * * $1
+allow * $1
 
 $(awk -F "/" '{print "proxy -6 -n -a -p" $2 " -i" $1 " -e"$3 "\n" }' ${WORKDATA})
 EOF
