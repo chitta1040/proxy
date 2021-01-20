@@ -59,7 +59,6 @@ install_3proxy
 
 echo "working folder = /home/proxy-installer"
 WORKDIR="/home/proxy-installer"
-WORKDATA="${WORKDIR}/data.txt"
 mkdir $WORKDIR && cd $_
 
 IP4=$(curl -4 -s ifconfig.co)
@@ -88,4 +87,4 @@ bash /etc/rc.local
 
 gen_proxy_file_for_user
 
-upload_proxy
+
