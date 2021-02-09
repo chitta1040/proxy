@@ -20,8 +20,7 @@ gen_data() {
          IP66=$(gen64 $IP6)
 	 pfile=proxy.txt
          echo "proxy -6 -n -a -p$port -i $IP4 -e $IP66" >> $pfile
-	
-	 netsh interface ipv6 add address 5 $IP66
+	 #netsh interface ipv6 add address 5 $IP66
     
     done
    
