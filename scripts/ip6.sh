@@ -22,7 +22,7 @@ gen_data() {
 	
 	 cat >proxy.txt <<EOF
          $(awk -F "/" '{print "proxy -6 -n -a -p" $port " -i" $IP4 " -e"$IP66 "\n" }' ${WORKDATA})
-         EOF
+    EOF
     done
 }
 
