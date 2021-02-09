@@ -15,10 +15,13 @@ gen64() {
 
 
 gen_data() {
-   
+    pfile=proxy.txt
+    echo "auth iponly" >> $pfile
+    echo "allow * $IP4" >> $pfile
+    
     seq $FIRST_PORT $LAST_PORT | while read port; do
          IP66=$(gen64 $IP6)
-	 pfile=proxy.txt
+	 
          echo "proxy -6 -n -a -p$port -i $IP4 -e $IP66" >> $pfile
 	 #netsh interface ipv6 add address 5 $IP66
     
@@ -26,8 +29,8 @@ gen_data() {
    
 }
 
-echo "working folder = /home/proxy-installer"
-WORKDIR="/home/proxy-installer"
+echo "working folder = C:\Users\Administrator\Desktop\proxy"
+WORKDIR="C:\Users\Administrator\Desktop\proxy"
 WORKDATA="${WORKDIR}/data.txt"
 mkdir $WORKDIR && cd $_
 
