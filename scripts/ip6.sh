@@ -12,7 +12,7 @@ gen64() {
 	}
 	echo "$1:$(ip64):$(ip64):$(ip64):$(ip64)"
 }
-proxy -6 -n -a -p" $2 " -i" $1 " -e"$3
+
 
 gen_data() {
     seq $FIRST_PORT $COUNT | while read port; do
