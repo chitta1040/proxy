@@ -18,9 +18,9 @@ gen_data() {
    
     seq $FIRST_PORT $LAST_PORT | while read port; do
          IP66=$(gen64 $IP6)
-	 cat << EOF > proxy.txt
-         echo "proxy -6 -n -a -p$port -i $IP4 -e $IP66"
-	 EOF
+	 pfile = proxy.text
+         echo "proxy -6 -n -a -p$port -i $IP4 -e $IP66" >> $pfile
+	
 	 netsh interface ipv6 add address 5 $IP66
     
     done
