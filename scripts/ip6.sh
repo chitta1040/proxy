@@ -13,14 +13,20 @@ gen64() {
 	echo "$1:$(ip64):$(ip64):$(ip64):$(ip64)"
 }
 
+gen_data() {
+    seq $FIRST_PORT $COUNT | while read port; do
+        echo "$(gen64 $IP6)"
+    done
+}
+FIRST_PORT=0
 echo "How many proxy do you want to create? Example 500"
 read COUNT
 
 echo "Please Enter your ipv6"
-read ip6
+read IP6
 
 
 
-gen64 $ip6
+gen_data
 
 
