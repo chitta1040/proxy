@@ -21,16 +21,12 @@ gen_data() {
 }
 
 IP4=$(curl -4 -s ifconfig.co)
-#IP6=$(curl -6 -s ifconfig.co | cut -f1-4 -d':')
+IP6=$(curl -6 -s ifconfig.co | cut -f1-4 -d':')
 
-echo "Internal ip = ${IP4}."
+echo "Internal ip = ${IP4}. Exteranl sub for ip6 = ${IP6}"
 
 echo "How many proxy do you want to create? Example 500"
 read COUNT
-
-
-echo "Please Enter your ipv6"
-read IP6
 
 
 FIRST_PORT=3100
