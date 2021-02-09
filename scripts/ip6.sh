@@ -26,6 +26,7 @@ read IP4
 echo "How many proxy do you want to create? Example 500"
 read COUNT
 
+
 echo "Please Enter your ipv6"
 read IP6
 
