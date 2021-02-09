@@ -16,9 +16,17 @@ gen64() {
 
 gen_data() {
     seq $FIRST_PORT $LAST_PORT | while read port; do
-         echo "proxy -6 -n -a -p$port -i $IP4 -e $(gen64 $IP6)"
+         IP66 = $(gen64 $IP6)
+         echo "proxy -6 -n -a -p$port -i $IP4 -e $IP66"
+	 cat >proxy.txt <<EOF
+         $(awk -F "/" '{print $IP66 }' ${WORKDATA})
     done
 }
+
+echo "working folder = /home/proxy-installer"
+WORKDIR="/home/proxy-installer"
+WORKDATA="${WORKDIR}/data.txt"
+mkdir $WORKDIR && cd $_
 
 IP4=$(curl -4 -s ifconfig.co)
 IP6=$(curl -6 -s ifconfig.co | cut -f1-4 -d':')
@@ -35,5 +43,6 @@ LAST_PORT=$(($FIRST_PORT + $COUNT))
 
 
 gen_data
+
 
 
