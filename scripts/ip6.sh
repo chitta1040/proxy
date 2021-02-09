@@ -13,11 +13,13 @@ gen64() {
 	echo "$1:$(ip64):$(ip64):$(ip64):$(ip64)"
 }
 
+echo "How many proxy do you want to create? Example 500"
+read COUNT
+
 echo "Please Enter your ipv6"
 read ip6
 
-echo "How many proxy do you want to create? Example 500"
-read COUNT
+
 
 gen64 $ip6
 
