@@ -20,8 +20,10 @@ gen_data() {
     done
 }
 
-echo "Enter your Ipv4"
-read IP4
+IP4=$(curl -4 -s ifconfig.co)
+#IP6=$(curl -6 -s ifconfig.co | cut -f1-4 -d':')
+
+echo "Internal ip = ${IP4}."
 
 echo "How many proxy do you want to create? Example 500"
 read COUNT
