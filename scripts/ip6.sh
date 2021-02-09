@@ -18,13 +18,19 @@ gen_data() {
    
     seq $FIRST_PORT $LAST_PORT | while read port; do
          IP66=$(gen64 $IP6)
+	 cat << EOF > proxy.txt
          echo "proxy -6 -n -a -p$port -i $IP4 -e $IP66"
+	 EOF
 	 netsh interface ipv6 add address 5 $IP66
     
     done
    
 }
 
+echo "working folder = /home/proxy-installer"
+WORKDIR="/home/proxy-installer"
+WORKDATA="${WORKDIR}/data.txt"
+mkdir $WORKDIR && cd $_
 
 
 IP4=$(curl -4 -s ifconfig.co)
