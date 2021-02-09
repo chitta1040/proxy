@@ -12,18 +12,26 @@ gen64() {
 	}
 	echo "$1:$(ip64):$(ip64):$(ip64):$(ip64)"
 }
+proxy -6 -n -a -p" $2 " -i" $1 " -e"$3
 
 gen_data() {
     seq $FIRST_PORT $COUNT | while read port; do
-        echo "$(gen64 $IP6)"
+         echo "proxy -6 -n -a -p$port -i $IP4 -e$(gen64 $IP6)"
     done
 }
-FIRST_PORT=0
+
+IP4=$(curl -4 -s ifconfig.co)
+echo "Internal ip = ${IP4}.
+
 echo "How many proxy do you want to create? Example 500"
 read COUNT
 
 echo "Please Enter your ipv6"
 read IP6
+
+
+FIRST_PORT=3100
+LAST_PORT=$(($FIRST_PORT + $COUNT))
 
 
 
