@@ -15,7 +15,7 @@ gen64() {
 
 
 gen_data() {
-    seq $FIRST_PORT $COUNT | while read port; do
+    seq $FIRST_PORT LAST_PORT | while read port; do
          echo "proxy -6 -n -a -p$port -i $IP4 -e $(gen64 $IP6)"
     done
 }
