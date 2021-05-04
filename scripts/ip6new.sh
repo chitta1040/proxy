@@ -32,10 +32,10 @@ gen_data() {
    
 }
 
-echo "working folder = C:\Users\Administrator\Desktop\proxy"
-WORKDIR="C:\Users\Administrator\Desktop\proxy"
-WORKDATA="${WORKDIR}/data.txt"
-mkdir $WORKDIR && cd $_
+#echo "working folder = C:\Users\Administrator\Desktop\proxy"
+#WORKDIR="C:\Users\Administrator\Desktop\proxy"
+#WORKDATA="${WORKDIR}/data.txt"
+#mkdir $WORKDIR && cd $_
 
 
 IP4=$(curl -4 -s ifconfig.co)
