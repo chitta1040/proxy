@@ -15,7 +15,7 @@ gen64() {
 
 
 gen_data() {
-    pfile=C:\Program Files\3proxy\bin\3proxy.cfg
+    pfile="C:\Program Files\3proxy\bin\3proxy.cfg"
     sed -i '17,$d' $pfile
     echo "auth iponly" >> $pfile
     echo "allow * $IP4" >> $pfile
