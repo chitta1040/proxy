@@ -54,5 +54,6 @@ LAST_PORT=$(($FIRST_PORT + $COUNT))
 
 gen_data
 
+Powershell ‘Restart-Service -name 3proxy’
 
 
