@@ -87,7 +87,7 @@ echo "How many proxy do you want to create? Example 500"
 read COUNT
 
 
-FIRST_PORT=10100
+FIRST_PORT=3100
 LAST_PORT=$(($FIRST_PORT + $COUNT))
 
 gen_data >$WORKDIR/data.txt
