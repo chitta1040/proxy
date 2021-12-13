@@ -36,7 +36,7 @@ setuid 65535
 stacksize 262144
 flush
 auth iponly
-allow * $1 * * *
+allow * $1
 
 $(awk -F "/" '{print "proxy -6 -n -a -p" $2 " -i" $1 " -e"$3 "\n" }' ${WORKDATA})
 EOF
@@ -78,8 +78,8 @@ WORKDIR="/home/proxy-installer"
 WORKDATA="${WORKDIR}/data.txt"
 mkdir $WORKDIR && cd $_
 
-IP4=$(curl -4 -s ifconfig.co)
-IP6=$(curl -6 -s ifconfig.co | cut -f1-4 -d':')
+IP4=$(curl -4 -s icanhazip.com)
+IP6=$(curl -6 -s icanhazip.com | cut -f1-4 -d':')
 
 echo "Internal ip = ${IP4}. Exteranl sub for ip6 = ${IP6}"
 
@@ -87,7 +87,7 @@ echo "How many proxy do you want to create? Example 500"
 read COUNT
 
 
-FIRST_PORT=3100
+FIRST_PORT=10100
 LAST_PORT=$(($FIRST_PORT + $COUNT))
 
 gen_data >$WORKDIR/data.txt
