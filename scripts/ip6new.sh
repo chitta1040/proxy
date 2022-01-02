@@ -24,7 +24,7 @@ gen_data() {
     
     seq $FIRST_PORT $LAST_PORT | while read port; do
          IP66=$(gen64 $IP6)
-	 
+	 echo "$IP4:$port"
          echo "proxy -6 -n -a -p$port -i$IP4 -e$IP66" >> "C:\Program Files\3proxy\bin\3proxy.cfg"
 	 netsh interface ipv6 add address "Ethernet" $IP66
     
