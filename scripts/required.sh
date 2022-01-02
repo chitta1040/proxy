@@ -1,6 +1,6 @@
 #!/bin/sh
 
-pip install selenium
+pip install selenium==3.141
 pip install requests
 pip install selenium-wire
 pip install Faker
