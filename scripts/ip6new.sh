@@ -15,7 +15,7 @@ gen64() {
 
 
 gen_data() {
-    #pfile="C:\Program Files\3proxy\bin\3proxy.cfg"
+    #pfile="C:\Program Files\3proxy\bin64\3proxy.cfg"
     sed -i '17,$d' "C:\Program Files\3proxy\bin\3proxy.cfg"
     echo "  " >> "C:\Program Files\3proxy\bin\3proxy.cfg"
     echo "  " >> "C:\Program Files\3proxy\bin\3proxy.cfg"
@@ -25,7 +25,7 @@ gen_data() {
     seq $FIRST_PORT $LAST_PORT | while read port; do
          IP66=$(gen64 $IP6)
 	 echo "$IP4:$port"
-         echo "proxy -6 -n -a -p$port -i$IP4 -e$IP66" >> "C:\Program Files\3proxy\bin\3proxy.cfg"
+         echo "proxy -6 -n -a -p$port -i$IP4 -e$IP66" >> "C:\Program Files\3proxy\bin64\3proxy.cfg"
 	 netsh interface ipv6 add address "Ethernet" $IP66
     
     done
