@@ -16,11 +16,11 @@ gen64() {
 
 gen_data() {
     #pfile="C:\Program Files\3proxy\bin64\3proxy.cfg"
-    sed -i '17,$d' "C:\Program Files\3proxy\bin\3proxy.cfg"
-    echo "  " >> "C:\Program Files\3proxy\bin\3proxy.cfg"
-    echo "  " >> "C:\Program Files\3proxy\bin\3proxy.cfg"
-    echo "auth iponly" >> "C:\Program Files\3proxy\bin\3proxy.cfg"
-    echo "allow * $IP4" >> "C:\Program Files\3proxy\bin\3proxy.cfg"
+    sed -i '17,$d' "C:\Program Files\3proxy\bin64\3proxy.cfg"
+    echo "  " >> "C:\Program Files\3proxy\bin64\3proxy.cfg"
+    echo "  " >> "C:\Program Files\3proxy\bin64\3proxy.cfg"
+    echo "auth iponly" >> "C:\Program Files\3proxy\bin64\3proxy.cfg"
+    echo "allow * $IP4" >> "C:\Program Files\3proxy\bin64\3proxy.cfg"
     
     seq $FIRST_PORT $LAST_PORT | while read port; do
          IP66=$(gen64 $IP6)
